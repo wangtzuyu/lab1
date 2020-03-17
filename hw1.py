@@ -75,30 +75,37 @@ if (len(list0)<2):
     print("[['C0A880','None'],",end="")
 else :
     range0=float(max(list0))-float(min(list0))
-    print("[['C0A880',",range0,",",end="")
+    print("['C0A880', ",end="")
+    print(range0,end="")
+    print("],",end="")
 if (len(list1)<2):
     print("['C0F9A0','None'],",end="")
 else :
     range1=float(max(list1))-float(min(list1))
-    range11=str(range1)
-    print("['C0F9A0',",range11,"],",end="")
-
+    print("['C0F9A0', ",end="")
+    print(range1,end="")
+    print("],",end="")
 if (len(list2)<2):
     print("['C0G640','None'],",end="")
 else :
     range2=float(max(list2))-float(min(list2))
-    print("['C0G640'],",range2,"],",end="")
-
+    print("['C0G640', ",end="")
+    print(range2,end="")
+    print("],",end="")
 if (len(list3)<2):
     print("['C0R190','None'],",end="")
 else :
     range3=float(max(list3))-float(min(list3))
-    print("['C0R190'],",range3,"],",end="")
+    print("['C0R190', ",end="")
+    print(range3,end="")
+    print("],",end="")
 if (len(list4)<2):
     print("['C0X260','None']],",end="")
 else :
     range4=float(max(list4))-float(min(list4))
-    print("['C0X260'],",range4,"]],",end="")
+    print("['C0X260', ",end="")
+    print(range4,end="")
+    print("]]",end="")
 
 
 #=======================================
