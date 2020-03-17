@@ -17,7 +17,7 @@ import csv
 
 # Read cwb weather data
 
-cwb_filename = '106061102.csv'
+cwb_filename = 'sample_input.csv'
 
 data = []
 
@@ -49,29 +49,56 @@ with open(cwb_filename) as csvfile:
 
 # Retrive ten data points from the beginning.
 
-target_data = data[:10]
-for i in range(0,9,1):
-    print(target_data[i]['WDSD'])
-print("I am divider")
-def reserve(n):
-    return  (n!=(-99|-999))==1
-    
-for i in range(0,9,1):
-    templist=filter(reserve,target_data[i]['WDSD'])
-    target_data[i]['WDSD']=list(templist)
-    print(target_data[i]['WDSD'])
+#target_data = data[:10]
+target_data = list(filter(lambda item: item ['WDSD']!='-999.000' and  item['WDSD'] != '-99.000', data))
+data0 = list(filter(lambda item: item ['station_id']=='C0A880', target_data))
+data1 = list(filter(lambda item: item ['station_id']=='C0F9A0', target_data))
+data2 = list(filter(lambda item: item ['station_id']=='C0G640', target_data))
+data3 = list(filter(lambda item: item ['station_id']=='C0R190', target_data))
+data4 = list(filter(lambda item: item ['station_id']=='C0X260', target_data))
+list0=[]
+list1=[]
+list2=[]
+list3=[]
+list4=[]
+for i in range (len(data0)):
+    list0.append(data0[i]['WDSD'])
+for i in range (len(data1)):
+    list1.append(data1[i]['WDSD'])
+for i in range (len(data2)):
+    list2.append(data2[i]['WDSD'])
+for i in range (len(data3)):
+    list3.append(data3[i]['WDSD'])
+for i in range (len(data4)):
+    list4.append(data4[i]['WDSD'])    
+if (len(list0)<2):
+    print("[['C0A880','None'],",end="")
+else :
+    range0=float(max(list0))-float(min(list0))
+    print("[['C0A880',",range0,",",end="")
+if (len(list1)<2):
+    print("['C0F9A0','None'],",end="")
+else :
+    range1=float(max(list1))-float(min(list1))
+    range11=str(range1)
+    print("['C0F9A0',",range11,"],",end="")
 
-'''
-for i in range(0,9,1):
-    if (target_data[i]['WDSD']==0.9):
-        print('true')
-        del target_data[i][2]
-    elif target_data[i]['WDSD']==0.000:
-        del target_data[i]
-    else:
-        print(target_data[i]['WDSD'])
-        # do nothing
-'''
+if (len(list2)<2):
+    print("['C0G640','None'],",end="")
+else :
+    range2=float(max(list2))-float(min(list2))
+    print("['C0G640'],",range2,"],",end="")
+
+if (len(list3)<2):
+    print("['C0R190','None'],",end="")
+else :
+    range3=float(max(list3))-float(min(list3))
+    print("['C0R190'],",range3,"],",end="")
+if (len(list4)<2):
+    print("['C0X260','None']],",end="")
+else :
+    range4=float(max(list4))-float(min(list4))
+    print("['C0X260'],",range4,"]],",end="")
 
 
 #=======================================
